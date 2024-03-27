@@ -4,11 +4,10 @@ import { motion } from "framer-motion";
 import emptyCart from "@assets/images/emptyCart.png";
 import ItemCard from "@components/ItemCard";
 import { useRecoilState } from "recoil";
-import { cartAtom } from "@recoil/atom/cart";
+import { cartAtom, resetCart } from "@recoil/atom/cart";
 
 export const Cart = () => {
-  const [products] = useRecoilState(cartAtom);
-
+  const [products, setCart] = useRecoilState(cartAtom);
   const [totalAmt, setTotalAmt] = useState(0);
 
   useEffect(() => {
@@ -18,6 +17,10 @@ export const Cart = () => {
     const formattedPrice = parseFloat(price.toFixed(2));
     setTotalAmt(formattedPrice);
   }, [products]);
+
+  const clearCart = () => {
+    setCart(resetCart());
+  };
 
   return (
     <div className="max-w-container mx-auto py-10 px-4">
@@ -38,7 +41,7 @@ export const Cart = () => {
           </div>
 
           <button
-            onClick={() => []}
+            onClick={clearCart}
             className="py-2 px-10 bg-red-500 text-white font-semibold uppercase mb-4 hover:bg-red-700 duration-300"
           >
             Resetar carrinho
