@@ -1,10 +1,5 @@
 import React from "react";
 import { ImCross } from "react-icons/im";
-// import {
-//   deleteItem,
-//   drecreaseQuantity,
-//   increaseQuantity,
-// } from "@redux/orebiSlice";
 import { ProductType } from "@interfaces/Product";
 import {
   cartAtom,

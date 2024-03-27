@@ -44,3 +44,5 @@ yarn;
 ```js
 yarn dev
 ```
+
+Em seguida copie o conteúdo dentro do arquivo '.env.example' e crie um arquivo .env na raiz do seu projeto e depois pare o servidor e rode novamente.
