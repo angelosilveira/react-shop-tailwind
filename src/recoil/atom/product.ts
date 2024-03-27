@@ -1,4 +1,4 @@
-import { atom, selector, useSetRecoilState } from "recoil";
+import { atom, useSetRecoilState } from "recoil";
 import { ProductType } from "@interfaces/Product";
 
 export const productListAtom = atom<ProductType[]>({
@@ -6,28 +6,24 @@ export const productListAtom = atom<ProductType[]>({
   default: [],
 });
 
-export const favoritesTotalAtom = selector({
-  key: "favoritesTotal",
-  get: ({ get }) => {
-    const favoritesProducts = get(productListAtom);
-
-    return favoritesProducts.filter((product) => product.isFavorite).length;
-  },
+export const favoritesAtom = atom<ProductType[]>({
+  key: "favoritesState",
+  default: [],
 });
 
 export const useToggleFavorite = () => {
-  const setFavorites = useSetRecoilState(productListAtom);
+  const setFavorites = useSetRecoilState(favoritesAtom);
 
-  return (id: number) => {
-    setFavorites((currentProductsFavorites) => {
-      const newArrayProductsFavorites = currentProductsFavorites.map(
-        (product) =>
-          product.id === id
-            ? { ...product, isFavorite: !product.isFavorite }
-            : product
-      );
-
-      return newArrayProductsFavorites;
+  return (product: ProductType) => {
+    setFavorites((currentFavorites) => {
+      const foundIndex = currentFavorites.findIndex((x) => x.id === product.id);
+      if (foundIndex >= 0) {
+        // Produto encontrado nos favoritos, remove-o
+        return currentFavorites.filter((_, index) => index !== foundIndex);
+      } else {
+        // Produto não encontrado, adiciona aos favoritos
+        return [...currentFavorites, product];
+      }
     });
   };
 };

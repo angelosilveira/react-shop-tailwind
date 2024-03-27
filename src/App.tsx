@@ -15,6 +15,7 @@ import SpecialCase from "./components/SpecialCase";
 import { Home } from "./pages/Home";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Cart } from "./pages/Cart";
+import { Favorites } from "@pages/Favorites";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -48,6 +49,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Route>
     </Route>
   )

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineLabelImportant } from "react-icons/md";
@@ -6,16 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ProductType } from "@interfaces/Product";
 import { useAddToCart } from "@recoil/atom/cart";
-import { useToggleFavorite } from "@recoil/atom/product";
+import { favoritesAtom, useToggleFavorite } from "@recoil/atom/product";
+import { useRecoilValue } from "recoil";
 
-export const Product = ({
-  id,
-  title,
-  image,
-  price,
-  category,
-  isFavorite,
-}: ProductType) => {
+export const Product = ({ id, title, image, price, category }: ProductType) => {
+  const favoritesTotal = useRecoilValue(favoritesAtom);
   const addToCart = useAddToCart();
   const navigate = useNavigate();
   const toggleFavorite = useToggleFavorite();
@@ -33,13 +28,23 @@ export const Product = ({
   };
 
   const handleToggleFavorite = () => {
-    toggleFavorite(id);
+    toggleFavorite({
+      id,
+      title,
+      image,
+      price,
+      category,
+    });
     toast.success("Produto favoritado");
   };
 
   const handleProductDetails = useCallback(() => {
     navigate(`/product/${id}`);
   }, [id, navigate]);
+
+  const isFavorite = useMemo(() => {
+    return favoritesTotal.some((x) => x.id === id);
+  }, [favoritesTotal, id]);
 
   return (
     <div className="w-full relative group" key={id}>
