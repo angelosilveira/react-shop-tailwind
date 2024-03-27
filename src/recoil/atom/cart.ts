@@ -1,5 +1,5 @@
 import { atom, selector, useSetRecoilState } from "recoil";
-import { ProductType } from "../../interfaces/Product";
+import { ProductType } from "@interfaces/Product";
 
 export const cartAtom = atom<ProductType[]>({
   key: "cart",

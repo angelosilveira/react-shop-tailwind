@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect } from "react";
 import Slider from "react-slick";
-import { Heading } from "../../components/Products/Heading";
-import { Product } from "../../components/Products";
+import { Heading } from "@components/Products/Heading";
+import { Product } from "@components/Products";
 
-import { SampleNextArrow } from "../../components/SampleNextArrow";
-import { SamplePrevArrow } from "../../components/SamplePrevArrow";
-import { getAllProducts } from "../../services/product";
+import { SampleNextArrow } from "@components/SampleNextArrow";
+import { SamplePrevArrow } from "@components/SamplePrevArrow";
+import { getAllProducts } from "@services/product";
 import { useRecoilState } from "recoil";
-import { productListAtom } from "../../recoil/atom/product";
+import { productListAtom } from "@recoil/atom/product";
 
 export const Home = () => {
   const [products, setProducts] = useRecoilState(productListAtom);

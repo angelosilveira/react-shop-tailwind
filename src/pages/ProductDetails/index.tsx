@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { ProductInfo } from "../../components/ProductInfo";
-import { ProductType } from "../../interfaces/Product";
-import { getProduct } from "../../services/product";
+import { ProductInfo } from "@components/ProductInfo";
+import { ProductType } from "@interfaces/Product";
+import { getProduct } from "@services/product";
 import { useParams } from "react-router-dom";
 
 const tabs = [

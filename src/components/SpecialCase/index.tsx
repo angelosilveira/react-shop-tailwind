@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { cartAtom } from "../../recoil/atom/cart";
+import { cartAtom } from "@recoil/atom/cart";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { favoritesTotalAtom } from "../../recoil/atom/product";
+import { favoritesTotalAtom } from "@recoil/atom/product";
 
 const SpecialCase = () => {
   const [cart] = useRecoilState(cartAtom);

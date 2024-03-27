@@ -4,8 +4,8 @@ import { ImCross } from "react-icons/im";
 //   deleteItem,
 //   drecreaseQuantity,
 //   increaseQuantity,
-// } from "../../redux/orebiSlice";
-import { ProductType } from "../../interfaces/Product";
+// } from "@redux/orebiSlice";
+import { ProductType } from "@interfaces/Product";
 
 type Props = {
   product: ProductType;

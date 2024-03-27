@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import emptyCart from "../../assets/images/emptyCart.png";
-import ItemCard from "../../components/ItemCard";
+import emptyCart from "@assets/images/emptyCart.png";
+import ItemCard from "@components/ItemCard";
 import { useRecoilState } from "recoil";
-import { cartAtom } from "../../recoil/atom/cart";
+import { cartAtom } from "@recoil/atom/cart";
 
 export const Cart = () => {
   const [products] = useRecoilState(cartAtom);

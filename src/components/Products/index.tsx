@@ -4,9 +4,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineLabelImportant } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { ProductType } from "../../interfaces/Product";
-import { useAddToCart } from "../../recoil/atom/cart";
-import { useToggleFavorite } from "../../recoil/atom/product";
+import { ProductType } from "@interfaces/Product";
+import { useAddToCart } from "@recoil/atom/cart";
+import { useToggleFavorite } from "@recoil/atom/product";
 
 export const Product = ({
   id,

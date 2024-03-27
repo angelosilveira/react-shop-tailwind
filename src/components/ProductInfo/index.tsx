@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductType } from "../../interfaces/Product";
-import { useAddToCart } from "../../recoil/atom/cart";
+import { ProductType } from "@interfaces/Product";
+import { useAddToCart } from "@recoil/atom/cart";
 import { toast } from "react-toastify";
 
 type Props = {
